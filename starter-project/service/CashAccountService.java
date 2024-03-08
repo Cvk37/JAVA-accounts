@@ -17,7 +17,7 @@ public class CashAccountService implements TradeAccountService {
 
     @Override
     public void deposit(String id, BigDecimal amount) {
-        CashAccount account = this.retreiveTradeAccount(id);
+        CashAccount account = this.retrieveTradeAccount(id);
         account.setCashBalance(account.getCashBalance().add(amount));
         updateTradeAccount(account);
     }
@@ -25,7 +25,7 @@ public class CashAccountService implements TradeAccountService {
     @Override
     public void withdraw(String id, BigDecimal amount) {
         // Implement withdrawal logic here
-        CashAccount account = this.retreiveTradeAccount(id);
+        CashAccount account = this.retrieveTradeAccount(id);
         account.setCashBalance(account.getCashBalance().subtract(amount));
         updateTradeAccount(account);
 
@@ -36,7 +36,7 @@ public class CashAccountService implements TradeAccountService {
         this.trade.createTradeAccount(account);
      }
      
-     public CashAccount retreiveTradeAccount(String id){
+     public CashAccount retrieveTradeAccount(String id){
      return (CashAccount)this.trade.retrieveTradeAccount(id);
      }
      
